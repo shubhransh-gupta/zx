@@ -78,13 +78,9 @@ await p.lines()       // ['foo', 'bar']
 await $`touch foo bar baz; find ./ -type f -print0`
   .lines('\0')        // ['./bar', './baz', './foo']
 
-// If the output is a valid JSON, parse it in place (parses stdout by default):
+// If the output is a valid JSON, parse it in place:
 await $`echo '{"foo": "bar"}'`
   .json()             // {foo: 'bar'}
-
-// You can specify the stream source if needed ('stdout' | 'stderr' | 'stdall'):
-await $`echo '{"foo": "bar"}'`
-  .json('stdout')     // {foo: 'bar'}
 ```
 
 ## `pid, cwd, cmd, fullCmd`
